@@ -1,4 +1,4 @@
-package com.bodyash.wicketapp;
+package com.bodyash.wicketapp.pages;
 
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.apache.wicket.markup.html.basic.Label;

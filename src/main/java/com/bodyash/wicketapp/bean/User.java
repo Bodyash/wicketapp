@@ -1,14 +1,29 @@
 package com.bodyash.wicketapp.bean;
 
-public class User {
-	private int id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+import org.apache.wicket.authroles.authorization.strategies.role.Roles;
+import org.apache.wicket.util.io.IClusterable;
+
+import com.bodyash.wicketapp.security.IAuthModel;
+
+public class User implements IAuthModel, IClusterable {
+
+
+	private static final long serialVersionUID = 1L;
+	@Id @GeneratedValue(strategy=GenerationType.AUTO)
+	private Long id;
 	private String username;
 	private String firstName;
 	private String secondName;
 	private String middleName;
 	private String password;
 	
-	public User(int id, String username, String firstName, String secondName, String middleName, String password) {
+	public User(){}
+	
+	public User(Long id, String username, String firstName, String secondName, String middleName, String password) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -18,10 +33,10 @@ public class User {
 		this.password = password;
 	}
 	
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getUsername() {
@@ -52,7 +67,25 @@ public class User {
 		return password;
 	}
 	public void setPassword(String password) {
+		// TODO Password Encrypt?
 		this.password = password;
+	}
+	
+
+	@Override
+	public Roles getRoles() {
+		// TODO maybe there must be real Roles?
+		return new Roles("is_user");
+	}
+
+	@Override
+	public boolean hasAnyRole(Roles roles) {
+		return getRoles().hasAnyRole(roles);
+	}
+
+	@Override
+	public boolean hasRole(String role) {
+		return hasAnyRole(new Roles(role));
 	}
 
 }

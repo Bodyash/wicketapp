@@ -1,7 +1,11 @@
 package com.bodyash.wicketapp;
 
+import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
+
+import com.bodyash.wicketapp.pages.HomePage;
+import com.bodyash.wicketapp.security.ISecureApplication;
 
 /**
  * Application object for your web application.
@@ -9,7 +13,7 @@ import org.apache.wicket.protocol.http.WebApplication;
  * 
  * @see com.bodyash.wicketapp.Start#main(String[])
  */
-public class WicketApplication extends WebApplication
+public class WicketApplication extends WebApplication implements ISecureApplication
 {
 	/**
 	 * @see org.apache.wicket.Application#getHomePage()
@@ -18,6 +22,11 @@ public class WicketApplication extends WebApplication
 	public Class<? extends WebPage> getHomePage()
 	{
 		return HomePage.class;
+	}
+	
+	@Override
+	public Class<? extends Page> getLoginPage() {
+		return null;
 	}
 
 	/**
@@ -28,6 +37,9 @@ public class WicketApplication extends WebApplication
 	{
 		super.init();
 
-		// add your configuration here
+		
 	}
+
+
+	
 }
