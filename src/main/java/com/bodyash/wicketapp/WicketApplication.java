@@ -3,6 +3,8 @@ package com.bodyash.wicketapp;
 import org.apache.wicket.Page;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.protocol.http.WebApplication;
+import org.apache.wicket.spring.injection.annot.SpringComponentInjector;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.bodyash.wicketapp.pages.HomePage;
 import com.bodyash.wicketapp.security.ISecureApplication;
@@ -36,7 +38,10 @@ public class WicketApplication extends WebApplication implements ISecureApplicat
 	public void init()
 	{
 		super.init();
-
+		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
+		ctx.register(AppConfig.class);
+		ctx.refresh();
+		
 		
 	}
 

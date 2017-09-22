@@ -2,7 +2,9 @@ package com.bodyash.wicketapp.dao;
 
 import java.util.List;
 import javax.sql.DataSource;
+
 import org.springframework.jdbc.core.JdbcTemplate;
+
 import com.bodyash.wicketapp.bean.User;
 
 public class UserDaoImpl implements UserDao {
