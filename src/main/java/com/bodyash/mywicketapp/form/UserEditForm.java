@@ -8,6 +8,7 @@ import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.spring.injection.annot.SpringBean;
+import org.apache.wicket.validation.validator.EmailAddressValidator;
 
 import com.bodyash.mywicketapp.auth.dao.UserDao;
 import com.bodyash.mywicketapp.auth.dao.UserModel;
@@ -29,6 +30,7 @@ public class UserEditForm extends BaseForm<UserModel> {
 		this.user = user;
 		
 		email = new TextField("email", Model.of(user.getEmail()));
+		email.add(EmailAddressValidator.getInstance());
 		firstname = new TextField("firstname", Model.of(user.getFirstName()));
 		secondname = new TextField("secondname", Model.of(user.getSecondName()));
 		middlename = new TextField("middlename", Model.of(user.getMiddleName()));
