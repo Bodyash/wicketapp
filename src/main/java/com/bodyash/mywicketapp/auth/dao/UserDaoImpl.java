@@ -1,10 +1,17 @@
 package com.bodyash.mywicketapp.auth.dao;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.SqlRowSetResultSetExtractor;
 
 public class UserDaoImpl implements UserDao, Serializable {
 
@@ -30,27 +37,38 @@ public class UserDaoImpl implements UserDao, Serializable {
 
 	@Override
 	public void updateUser(UserModel u) {
-		// TODO Make this method work
+		String SQL = "Update Users SET email = ?, firstname = ?, secondname = ?, middlename= ? Where id=" + u.getId();
+		jdbcTemplateObject.update(SQL, u.getEmail(), u.getFirstName(), u.getSecondName(), u.getMiddleName());
 	}
 
 	@Override
-	public UserModel getUser(Long id) {
-		String SQL = "select * from Users where id = ?";
-		UserModel u = jdbcTemplateObject.queryForObject(SQL, new Object[] { id }, new UserMapper());
+	public UserModel getUser(String email) {
+		String SQL = "select * from Users where email = ?";
+		UserModel u = jdbcTemplateObject.queryForObject(SQL, new Object[] { email }, new UserMapper());
 		return u;
 	}
 
 	@Override
 	public void deleteUser(Long id) {
 		String SQL = "delete from Users where id = ?";
+		System.out.println("deleting user with id " + id);
 		jdbcTemplateObject.update(SQL, id);
 		return;
 	}
 
 	@Override
 	public List<UserModel> findByUsername(String searchName) {
-		// TODO And make this Method working too
-		return null;
+		String SQL = "select * from Users";
+		List<UserModel> users = jdbcTemplateObject.query(SQL, new UserMapper());
+		Set<UserModel> userSet = new HashSet<UserModel>();
+		for (UserModel userModel : users) {
+			if (userModel.getFirstName().contains(searchName) || userModel.getSecondName().contains(searchName)
+					|| userModel.getMiddleName().contains(searchName)) {
+				userSet.add(userModel);
+			}
+		}
+
+		return new ArrayList<UserModel>(userSet);
 	}
 
 	@Override
@@ -58,6 +76,13 @@ public class UserDaoImpl implements UserDao, Serializable {
 		String SQL = "select * from Users";
 		List<UserModel> users = jdbcTemplateObject.query(SQL, new UserMapper());
 		return users;
+	}
+
+	@Override
+	public UserModel getUserById(long id) {
+		String SQL = "select * from Users where id = ?";
+		UserModel u = jdbcTemplateObject.queryForObject(SQL, new Object[] { id }, new UserMapper());
+		return u;
 	}
 
 }

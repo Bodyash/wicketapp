@@ -22,6 +22,9 @@ public class UserModel implements IClusterable, IAuthModel {
 	// For criteria API and search
 	public static final String EMAIL = "email";
 	public static final String PASSWORD = "password";
+	public static final String FIRSTNAME = "firstname";
+	public static final String SECONDNAME = "secondname";
+	public static final String MIDDLENAME = "middlename";
 
 	@Id @GeneratedValue private Long id;
 	@Column(nullable=false, unique=true) private String email;

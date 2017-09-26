@@ -25,7 +25,7 @@ public class LoginForm extends BaseForm<UserModel> {
 
 	@Override
 	public void onSubmit() {
-		UserModel user = userDao.getUser(getModelObject().getId());
+		UserModel user = userDao.getUser((getModelObject().getEmail()));
 
 		// check if user can login and do login
 		if(user != null

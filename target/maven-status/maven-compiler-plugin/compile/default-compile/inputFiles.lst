@@ -1,6 +1,7 @@
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\AppConfig.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\auth\register\RegisterPage.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\auth\register\RegisterForm.java
+D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\form\UserEditForm.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\page\BaseForm.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\page\BasePage.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\panel\AuthPanel.java
@@ -10,10 +11,14 @@ D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\wicket\security\U
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\auth\dao\UserAnonymous.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\auth\register\RegisterPanel.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\auth\login\LoginForm.java
+D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\page\UserEditPage.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\wicket\security\UserSession.java
+D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\page\UserAddPage.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\auth\dao\UserMapper.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\WicketApplication.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\panel\AnonymPanel.java
+D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\form\UserAddForm.java
+D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\panel\UserListPanel.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\wicket\security\ISecureApplication.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\auth\dao\UserDaoImpl.java
 D:\portfolio\mywicketapp\src\main\java\com\bodyash\mywicketapp\auth\login\LoginPage.java

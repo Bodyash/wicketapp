@@ -9,10 +9,11 @@ public interface UserDao {
 	public void setDataSource(DataSource ds);
 	public void addUser(UserModel u);
 	public void updateUser(UserModel u);
-	public UserModel getUser(Long id);
+	public UserModel getUser(String email);
 	public void deleteUser(Long id);
 	public List<UserModel> findByUsername(String searchName);
 	public List<UserModel> listUsers();
+	public UserModel getUserById(long id);
 	
 
 }

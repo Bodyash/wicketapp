@@ -13,6 +13,8 @@ import com.bodyash.mywicketapp.auth.dao.UserModel;
 import com.bodyash.mywicketapp.auth.login.LoginPage;
 import com.bodyash.mywicketapp.auth.register.RegisterPage;
 import com.bodyash.mywicketapp.page.HomePage;
+import com.bodyash.mywicketapp.page.UserAddPage;
+import com.bodyash.mywicketapp.page.UserEditPage;
 import com.bodyash.mywicketapp.wicket.security.ISecureApplication;
 import com.bodyash.mywicketapp.wicket.security.UserRoleAuthorizationStrategy;
 import com.bodyash.mywicketapp.wicket.security.UserRolesAuthorizer;
@@ -53,7 +55,7 @@ public class WicketApplication extends WebApplication implements ISecureApplicat
 		    springContext.register(AppConfig.class);
 		    springContext.refresh();
 		    getComponentInstantiationListeners().add(new SpringComponentInjector(this, 
-		         springContext, false));
+		         springContext, true));
 	}
 
 	@Override
@@ -74,5 +76,7 @@ public class WicketApplication extends WebApplication implements ISecureApplicat
 		// page mounts / SEO
 		mountPage("/login/", LoginPage.class);
 		mountPage("/register/", RegisterPage.class);
+		mountPage("/useredit/", UserEditPage.class);
+		mountPage("/adduser/", UserAddPage.class);
 	}
 }

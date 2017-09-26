@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<wicket:extend>
+		<form id="userAddForm" method="get" wicket:id="userAddForm">
+			<fieldset>
+				<legend style="color: #F90">Edit User</legend>
+				<span>email (required): </span><input wicket:id="email" type="text" id="email" required="required"/><br/> 
+				<span>firstname: </span><input wicket:id="firstname" type="text" id="firstname" /><br/> 
+				<span>secondname: </span><input wicket:id="secondname" type="text" id="secondname" /><br/> 
+				<span>middlename: </span><input wicket:id="middlename" type="text" id="middlename" /><br/> 
+				<span>password (required): </span><input wicket:id="password" type="password" id="password" /><br/> 
+				<span>Save: <input type="submit" wicket:id="add_button" value="Save"></span>
+			</fieldset>
+		</form>
+	</wicket:extend>
+</body>
+</html>

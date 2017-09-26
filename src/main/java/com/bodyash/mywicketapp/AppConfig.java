@@ -26,7 +26,7 @@ public class AppConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/mywicketapp?useUnicode=true&useSSL=false");
+		dataSource.setUrl("jdbc:mysql://localhost:3306/mywicketapp?useUnicode=true&useSSL=false&serverTimezone=UTC");
 		dataSource.setUsername("root");
 		dataSource.setPassword("test1230");
 		return dataSource;

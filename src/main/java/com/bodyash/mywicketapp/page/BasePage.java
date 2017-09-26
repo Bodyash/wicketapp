@@ -5,6 +5,7 @@ import org.apache.wicket.markup.html.WebPage;
 import com.bodyash.mywicketapp.auth.dao.UserModel;
 import com.bodyash.mywicketapp.panel.AnonymPanel;
 import com.bodyash.mywicketapp.panel.AuthPanel;
+import com.bodyash.mywicketapp.panel.UserListPanel;
 import com.bodyash.mywicketapp.wicket.security.UserSession;
 
 
@@ -18,6 +19,7 @@ abstract public class BasePage extends WebPage {
 
 		// panel for authenticated users
 		add(new AuthPanel("authPanel"));
+		
 	}
 
 	@SuppressWarnings("unchecked")
