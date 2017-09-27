@@ -10,6 +10,7 @@ import java.util.Set;
 
 import javax.sql.DataSource;
 
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.SqlRowSetResultSetExtractor;
 
@@ -44,8 +45,14 @@ public class UserDaoImpl implements UserDao, Serializable {
 	@Override
 	public UserModel getUser(String email) {
 		String SQL = "select * from Users where email = ?";
-		UserModel u = jdbcTemplateObject.queryForObject(SQL, new Object[] { email }, new UserMapper());
-		return u;
+		UserModel u = null;
+		try{
+			u = jdbcTemplateObject.queryForObject(SQL, new Object[] { email }, new UserMapper());
+			return u;
+		}catch(EmptyResultDataAccessException e){
+			System.out.println("Size : " + e.getActualSize());
+			return u;
+		}
 	}
 
 	@Override
@@ -62,8 +69,8 @@ public class UserDaoImpl implements UserDao, Serializable {
 		List<UserModel> users = jdbcTemplateObject.query(SQL, new UserMapper());
 		Set<UserModel> userSet = new HashSet<UserModel>();
 		for (UserModel userModel : users) {
-			if (userModel.getFirstName().contains(searchName) || userModel.getSecondName().contains(searchName)
-					|| userModel.getMiddleName().contains(searchName)) {
+			if (userModel.getFirstName().toLowerCase().contains(searchName.toLowerCase()) || userModel.getSecondName().toLowerCase().contains(searchName.toLowerCase())
+					|| userModel.getMiddleName().toLowerCase().contains(searchName.toLowerCase())) {
 				userSet.add(userModel);
 			}
 		}
@@ -81,8 +88,14 @@ public class UserDaoImpl implements UserDao, Serializable {
 	@Override
 	public UserModel getUserById(long id) {
 		String SQL = "select * from Users where id = ?";
-		UserModel u = jdbcTemplateObject.queryForObject(SQL, new Object[] { id }, new UserMapper());
-		return u;
+		UserModel u = null;
+		try{
+			u = jdbcTemplateObject.queryForObject(SQL, new Object[] { id }, new UserMapper());
+			return u;
+		}catch(EmptyResultDataAccessException e){
+			System.out.println("Size : " + e.getActualSize());
+			return u;
+		}
 	}
 
 }
