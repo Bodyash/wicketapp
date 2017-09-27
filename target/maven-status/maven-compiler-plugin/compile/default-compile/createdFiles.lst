@@ -22,6 +22,7 @@ com\bodyash\mywicketapp\panel\UserListPanel$1$1.class
 com\bodyash\mywicketapp\wicket\security\IAuthModel.class
 com\bodyash\mywicketapp\auth\dao\UserDao.class
 com\bodyash\mywicketapp\panel\UserListPanel.class
+com\bodyash\mywicketapp\form\UserSearchForm.class
 com\bodyash\mywicketapp\wicket\security\ISecureApplication.class
 com\bodyash\mywicketapp\auth\login\LoginPage.class
 com\bodyash\mywicketapp\panel\UserListPanel$1.class

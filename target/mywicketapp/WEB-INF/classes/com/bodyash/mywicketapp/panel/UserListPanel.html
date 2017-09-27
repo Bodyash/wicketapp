@@ -1,0 +1,35 @@
+<html xmlns:wicket="http://wicket.apache.org/">
+<body>
+
+	<wicket:panel>
+	<br><br><a wicket:id="user_add">Add new User</a><br>
+	<br><form wicket:id="userSearchForm">
+		<input type="text" wicket:id="name">
+		<input type="submit" wicket:id="searchButton" value="Search by Name">
+	</form><br>
+		<table border="1" class="dataview">
+			<tbody>
+				<tr>
+					<td>ID</td>
+					<td>email</td>	
+					<td>firstName</td>	
+					<td>SecondName</td>	
+					<td>MiddleName</td>	
+					<td>edit</td>	
+					<td>delete</td>			
+				</tr>
+				<tr wicket:id="userList">
+					<td><span wicket:id="id">User Id</span></td>
+					<td><span wicket:id="email">User email</span></td>
+					<td><span wicket:id="firstname">User firstname</span></td>
+					<td><span wicket:id="secondname">User secondname</span></td>
+					<td><span wicket:id="middlename">User middlename</span></td>
+					<td><a wicket:id="user_edit">Edit</a></td>
+					<td><form wicket:id="delete_form"><input type="submit" wicket:id="delete_button" value="Delete"></form></td>
+				</tr>
+			</tbody>
+		</table>
+	</wicket:panel>
+
+</body>
+</html>
