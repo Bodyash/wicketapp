@@ -140,12 +140,6 @@
 			<artifactId>javax.persistence-api</artifactId>
 			<version>2.2</version>
 		</dependency>
-
-<dependency>
-    <groupId>org.alfresco</groupId>
-    <artifactId>alfresco-repository</artifactId>
-    <version>6.4</version>
-</dependency>
 	</dependencies>
 
 	<build>
@@ -191,8 +185,8 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
-				<artifactId>tomcat8-maven-plugin</artifactId>
-				<version>3.0-r1756463</version>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
 				<executions>
 					<execution>
 						<id>tomcat-run</id>
